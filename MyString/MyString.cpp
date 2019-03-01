@@ -26,6 +26,7 @@ MyString::MyString(const char* str)
 // Copy Constructor
 MyString::MyString(const MyString& obj)
 {
+	cout << "Copy Constructor being used..." << endl;
 	s = new char[strlen(obj.s) + 1];
 	strcpy_s(s, strlen(obj.s) + 1, obj.s);
 }
@@ -63,7 +64,7 @@ bool MyString::operator==(const MyString& obj)
 {
 	bool status;
 	
-	if (s == obj.s)
+	if (strcmp(obj.s, s) == 0)
 		status = true;
 	else
 		status = false;
@@ -97,7 +98,7 @@ MyString MyString::operator+(const MyString& obj)
 // Parameters:
 // obj: constant MyString object to output
 // return: strm, reference to an output stream object
-ostream &operator<<(ostream &strm, const MyString &obj)
+ostream& operator <<(ostream &strm, const MyString &obj)
 {
 	if (obj.c_str() != nullptr)
 		strm << obj.c_str();

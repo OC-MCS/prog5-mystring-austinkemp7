@@ -6,6 +6,12 @@
 // Description: Header file containing the function declarations, constructors
 // and destructors
 //=============================================================================
+#include <iostream>
+using namespace std;
+
+class MyString;
+ostream& operator <<(ostream &strm, const MyString &obj);
+
 class MyString
 {
 private:
